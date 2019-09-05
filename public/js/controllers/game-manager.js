@@ -36,13 +36,20 @@ const GameManager = () => { // Represents all functionality related to the game
 
 		while (!wordFound) {
 			newWord = wordList[Math.floor(Math.random() * Object.keys(wordList).length)]
-			wordFound = (!newWord.isUsed) ? true : false
-		}
+			wordFound = (newWord.isUsed == false) ? true : false
+		} newWord.isUsed = true
 
 		return {
 			category: newWord.category,
 			word: newWord.word
 		}
+	}
+
+	const setViews = () => {
+			ViewManager().updateLevel(gameState.level, Object.keys(wordList).length)
+			ViewManager().updateDrawing(gameState.strikes)
+			ViewManager().updateWord(gameState.word.getWord().word)
+			ViewManager().updateCategory(gameState.word.getWord().category)
 	}
 
 	const resetLevel = () => {
@@ -53,11 +60,7 @@ const GameManager = () => { // Represents all functionality related to the game
 		gameState.word = new Word(newWord.word, newWord.category)
 		gameState.strikes = 0
 		gameState.level++
-
-		ViewManager().updateLevel(gameState.level, Object.keys(wordList).length)
-		ViewManager().updateDrawing(gameState.strikes)
-		ViewManager().updateWord(gameState.word.getWord().word)
-		ViewManager().updateCategory(gameState.word.getWord().category)
+		setViews()
 	}
 
 	const handleLevelWin = () => {
@@ -90,9 +93,11 @@ const GameManager = () => { // Represents all functionality related to the game
 		for (let i in wordList)
 			wordList[i].isUsed = false
 		gameState.status = 'init'
+		window.requestAnimationFrame(GAME_LOOP)
 		gameState.level = 0
 		gameState.strikes = 0
-		pauseGame()
+		resetLevel()
+		setViews()
 	}
 
 	const pauseGame = () => {
@@ -117,9 +122,8 @@ const GameManager = () => { // Represents all functionality related to the game
 	}
 
 	const endGame = () => {
-		pauseGame()
-
 		// Start a new game upon dismissing Game Over modal.
+		pauseGame()
 		gameState.status = 'end_prompt'
 	}
 
@@ -148,9 +152,7 @@ const GameManager = () => { // Represents all functionality related to the game
 		// Initialize input manager
 		InputManager().init()
 		_EventManager.subscribe('hangmanInput', handleKbInput)
-		window.requestAnimationFrame(GAME_LOOP)
 		newGame()
-		resetLevel()
 	}
 
 	return {

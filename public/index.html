@@ -5,9 +5,9 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Your page title here :)</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <title>For ITAS - Hangman</title>
+  <meta name="description" content="Hangman Game Project for ITAS Application">
+  <meta name="author" content="Meio Velarde">
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -16,11 +16,13 @@
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Permanent+Marker&display=swap" rel="stylesheet">
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/style.css">
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -31,14 +33,39 @@
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="hangman-modal_container">
+    <div class="hangman-modal">
+      <div class="hangman-modal_message">
+      </div>
+      Hit any key to continue...
+    </div>
+  </div>
+
   <div class="container">
+
     <div class="row">
-      <div class="one-half column" style="margin-top: 25%">
-        <h4>Basic Page</h4>
-        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
+      <div class="hangman-drawing">
+      </div>
+
+      <div class="hangman-level">
+      </div>
+
+    </div>
+
+    <div class="row hangman-wordCat">
+      <div class="hangman-word">
+      </div>
+      <div class="hangman-category">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="hangman-panel">
       </div>
     </div>
   </div>
+
+  <script type="module" src="js/hangman-master.js"></script>
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->

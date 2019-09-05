@@ -1,10 +1,12 @@
-# Meio's cutest JS entry point boilerplate
-- NodeJS based web app entry point
+# Hangman - for ITAS - Meio Velarde
 
-## Boilerplate components and links for the super cute
-  - Skeleton CSS Boilerplate: [http://getskeleton.com/]
-  - ExpressJS: [https://expressjs.com/en/api.html]
-  - Git initialization tutorial: [https://kbroman.org/github_tutorial/pages/init.html]
+## Description:
+This project makes use of the following tools:
+ - HTML5/CSS3/JavaScript ES6
+ - NodeJS
+ - ExpressJS  
+ - Skeleton [http://getskeleton.com/]
+ - Normalize [git.io/normalize]
 
 ## Install pre-requisites:
   - npm >= 6.4.1
